@@ -47,14 +47,10 @@ y_pred = knn.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Akurasi Model Awal: {accuracy * 100:.2f}%")
 
-# Simpan model dan scaler
-joblib.dump(knn, 'intelligent-control-week2/knn_model.pkl')
-joblib.dump(scaler, 'intelligent-control-week2/scaler.pkl')
-
 # Muat model dan scaler terbaru
 try:
-    knn = joblib.load('intelligent-control-week2/knn_model.pkl')
-    scaler = joblib.load('intelligent-control-week2/scaler.pkl')
+    knn = joblib.load('knn_model.pkl')
+    scaler = joblib.load('scaler.pkl')
 except FileNotFoundError as e:
     print(f"Error loading model or scaler: {e}")
     exit()
